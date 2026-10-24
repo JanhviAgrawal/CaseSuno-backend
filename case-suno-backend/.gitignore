@@ -1,0 +1,50 @@
+# Environment files (NEVER commit secrets or passwords)
+.env
+.env.local
+.env.*.local
+*.env
+
+# Python Virtual Environments
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Byte-compiled / optimized files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Database Backups & Dumps
+backups/
+*.dump
+*.sql
+*.sql.gz
+
+# Local SQLite databases
+*.sqlite3
+*.sqlite3-journal
+
+# Logs
+*.log
+logs/
+
+# Testing & Coverage
+.coverage
+htmlcov/
+.pytest_cache/
+.tox/
+
+# IDE & Editor folders
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Collected static files
+staticfiles/
