@@ -38,7 +38,21 @@ Render service → Settings → Custom Domains → add `api.casesuno.in`, then i
 add `CNAME  api  →  <service>.onrender.com`. `ALLOWED_HOSTS` in `render.yaml` already includes it.
 (The `*.onrender.com` host is always allowed automatically.)
 
+<<<<<<< HEAD
 ### Manual setup (without Blueprint)
+=======
+### Manual setup with the **Docker** runtime
+If you created the web service with *Language: Docker*, nothing else is needed for the build —
+the `Dockerfile` is at the repository root. On every start it runs migrations, creates the admin
+from `ADMIN_EMAIL`/`ADMIN_PASSWORD`, and starts gunicorn on Render's `$PORT`.
+* Settings → **Root Directory**: leave empty if `Dockerfile` is at the top of the repo
+  (set it to the folder name if you pushed the project inside a sub-folder).
+* Settings → **Dockerfile Path**: `./Dockerfile` · Health Check Path: `/health/`
+* Environment: `DATABASE_URL` (Render Postgres *Internal Database URL*), `SECRET_KEY` (any long random text),
+  `DEBUG=False`, `SITE_URL=https://casesuno.in`, plus the variables in the table above.
+
+### Manual setup with the **Python** runtime (without Blueprint)
+>>>>>>> bbacd8f (CaseSuno-Backend)
 * Build command: `./build.sh` · Start command: `gunicorn config.wsgi:application --bind 0.0.0.0:$PORT --workers 2 --timeout 120`
 * Environment: `DATABASE_URL` (Render Postgres *Internal* URL), `SECRET_KEY`, `DEBUG=False`, plus the table above.
 
